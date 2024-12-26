@@ -33,4 +33,3 @@ The initial plans in this pool are:
 * Plan 3:
   * Duration: 30 days
   * APY (Annual percentage yield): 42%
-
