@@ -1,3 +1,17 @@
-/FrontEnd/build
 /SmartContract/GIBI/artifacts
 /SmartContract/StakingPool/artifacts
+
+# Node.js dependencies
+node_modules/
+
+# Vite cache and build output
+dist/
+.vite/
+
+# Local environment files
+localhost-key.pem
+localhost.pem
+
+# System-specific files
+.DS_Store
+Thumbs.db

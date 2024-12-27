@@ -1,0 +1,582 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "GainReceived",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "planId",
+				"type": "uint8"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Invested",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Withdrew",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "_planId",
+				"type": "uint8"
+			}
+		],
+		"name": "activatePlan",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint40",
+				"name": "_duration",
+				"type": "uint40"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_apy",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_order",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_minInvestment",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "_active",
+				"type": "bool"
+			}
+		],
+		"name": "addPlan",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "amIOwner",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_newOwner",
+				"type": "address"
+			}
+		],
+		"name": "changeOwner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "_planId",
+				"type": "uint8"
+			}
+		],
+		"name": "deactivatePlan",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getGainValue",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_gainValue",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getInfo",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_investmentSum",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_gainReceivedSum",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_withdrawalSum",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getInvestments",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint8",
+						"name": "planId",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint40",
+						"name": "time",
+						"type": "uint40"
+					},
+					{
+						"internalType": "bool",
+						"name": "withdrew",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "gainReceived",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gain",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Data.Investment[]",
+				"name": "_investments",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_planId",
+				"type": "uint256"
+			}
+		],
+		"name": "getPlanInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint40",
+						"name": "duration",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint8",
+						"name": "apy",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "order",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minInvestment",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "investmentCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "investmentSum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gainSum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "wathdrawalSum",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Data.Plan",
+				"name": "_plan",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPlans",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint40",
+						"name": "duration",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint8",
+						"name": "apy",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "order",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minInvestment",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "investmentCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "investmentSum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gainSum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "wathdrawalSum",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Data.Plan[]",
+				"name": "_activePlans",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPlansInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint40",
+						"name": "duration",
+						"type": "uint40"
+					},
+					{
+						"internalType": "uint8",
+						"name": "apy",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "order",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minInvestment",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "investmentCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "investmentSum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "gainSum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "wathdrawalSum",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Data.Plan[]",
+				"name": "_plans",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getSecondsToWithdraw",
+		"outputs": [
+			{
+				"internalType": "uint40",
+				"name": "_seconds",
+				"type": "uint40"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getSystemInfo",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_investorCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_investmentCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_totalInvestment",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_totalGainReceived",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_totalWithdrawal",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_currentInvestmentSum",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_availableTokenAmount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getWithdrawableValue",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_withdrawValue",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "_planId",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "invest",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_investValue",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "receiveGain",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_gainValue",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "_planId",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_order",
+				"type": "uint8"
+			}
+		],
+		"name": "setPlanOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_withdrawValue",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
